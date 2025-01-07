@@ -9,27 +9,44 @@
 <body>
   <div class="container">
     <h1>Lovin e Shizuka ❤️</h1>
-    <p>Desde o momento em que te conheci, eu sabia que te queria para o resto da minha vida, 
-        em tão pouco tempo vc me deu o sentido de viver e me mostrou 
-        o que é um amor verdadeiro ❤️</p>
+    <p>Desde o momento em que te conheci, sabia que você era especial. ❤️</p>
     <p>Você quer namorar comigo?</p>
-
-    <!-- Adicionando a música de fundo -->
-    <audio id="musica" loop>
-      <source src="audios/musica.mp3" type="audio/mpeg">
-      Seu navegador não suporta a tag de áudio.
-    </audio>
-
     <div class="botoes">
       <button id="sim" onclick="escolherSim()">Sim 💕</button>
       <button id="nao" onmouseover="moverBotao()">Não 💔</button>
     </div>
+    <!-- O contador está inicialmente escondido -->
     <div id="contador" class="contador escondido">
-      <p>Estamos juntos há:</p>
-      <p id="tempo"></p>
+      <div class="tempo-box">
+        <p id="anos">00</p>
+        <span>anos</span>
+      </div>
+      <div class="tempo-box">
+        <p id="meses">00</p>
+        <span>meses</span>
+      </div>
+      <div class="tempo-box">
+        <p id="dias">00</p>
+        <span>dias</span>
+      </div>
+      <div class="tempo-box">
+        <p id="horas">00</p>
+        <span>horas</span>
+      </div>
+      <div class="tempo-box">
+        <p id="minutos">00</p>
+        <span>minutos</span>
+      </div>
+      <div class="tempo-box">
+        <p id="segundos">00</p>
+        <span>segundos</span>
+      </div>
     </div>
+    <audio id="musica" autoplay loop>
+      <source src="bts.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio HTML5.
+    </audio>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>

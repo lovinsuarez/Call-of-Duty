@@ -1,63 +1,61 @@
-// Função para o clique no botão "Sim"
+// Função para movimentar o botão "Não"
+function moverBotao() {
+  const botaoNao = document.getElementById("nao");
+  const larguraTela = window.innerWidth;
+  const alturaTela = window.innerHeight;
+  const novaPosicaoX = Math.random() * (larguraTela - botaoNao.offsetWidth);
+  const novaPosicaoY = Math.random() * (alturaTela - botaoNao.offsetHeight);
+  botaoNao.style.position = "absolute";
+  botaoNao.style.left = novaPosicaoX + "px";
+  botaoNao.style.top = novaPosicaoY + "px";
+}
+
+// Função para configurar o contador e exibi-lo
 function escolherSim() {
-    // Esconde os botões "Sim" e "Não" imediatamente
-    document.querySelector('.botoes').style.display = 'none';  // Esconde os botões
-    
-    // Mostra o cronômetro
-    document.querySelector('#contador').style.display = 'block';  // Mostra o contador
-  
-    // Salva o momento de início no localStorage, se ainda não foi salvo
-    if (!localStorage.getItem('inicio')) {
-      const inicio = new Date().toISOString();  // Salva a data atual em formato ISO
-      localStorage.setItem('inicio', inicio);
-    }
-  
-    // Inicia a contagem
-    iniciarContagem();
+  const contador = document.getElementById("contador");
+  const musica = document.getElementById("musica");
+
+  // Salva a data inicial no localStorage, caso não exista
+  if (!localStorage.getItem("dataInicio")) {
+    localStorage.setItem("dataInicio", new Date().toISOString());
   }
-  
-  // Função para iniciar a contagem
-  function iniciarContagem() {
-    // Recupera o momento de início do localStorage
-    const inicio = new Date(localStorage.getItem('inicio'));
-    
-    // Inicia o cronômetro
-    setInterval(() => {
-      const agora = new Date();
-      const diferenca = agora - inicio;
-  
-      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-      const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-      const segundos = Math.floor((diferenca / 1000) % 60);
-  
-      // Atualiza o texto do cronômetro
-      document.getElementById('tempo').textContent = 
-        `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
-    }, 1000); // Atualiza a cada 1000 milissegundos (1 segundo)
-  }
-  
-  // Função para mover o botão "Não"
-  function moverBotao() {
-    const botaoNao = document.getElementById('nao');
-    const maxLeft = window.innerWidth - botaoNao.offsetWidth;
-    const maxTop = window.innerHeight - botaoNao.offsetHeight;
-    
-    const newLeft = Math.random() * maxLeft;
-    const newTop = Math.random() * maxTop;
-  
-    botaoNao.style.left = `${newLeft}px`;
-    botaoNao.style.top = `${newTop}px`;
-  }
-  
-  // Configurar volume da música
-  window.onload = function() {
-    var musica = document.getElementById('musica');
-    musica.volume = 0.7; // Ajuste o volume para o nível desejado
-  
-    // Se já houver um momento de início salvo, inicie a contagem
-    if (localStorage.getItem('inicio')) {
-      iniciarContagem();
-    }
-  };
-  
+
+  // Toca a música
+  musica.volume = 0.5; // Volume inicial
+  musica.play();
+
+  // Remove a classe "escondido" do contador
+  contador.classList.remove("escondido");
+
+  iniciarContagem(); // Inicia a contagem do tempo
+}
+
+// Função para iniciar a contagem
+function iniciarContagem() {
+  const dataInicio = new Date(localStorage.getItem("dataInicio"));
+
+  setInterval(() => {
+    const agora = new Date();
+    const diferenca = agora - dataInicio;
+
+    const anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
+    const meses = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+    const dias = Math.floor((diferenca % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+    document.getElementById("anos").textContent = String(anos).padStart(2, "0");
+    document.getElementById("meses").textContent = String(meses).padStart(2, "0");
+    document.getElementById("dias").textContent = String(dias).padStart(2, "0");
+    document.getElementById("horas").textContent = String(horas).padStart(2, "0");
+    document.getElementById("minutos").textContent = String(minutos).padStart(2, "0");
+    document.getElementById("segundos").textContent = String(segundos).padStart(2, "0");
+  }, 1000);
+}
+
+// Exibe o contador diretamente, caso o usuário já tenha clicado em "Sim" antes
+if (localStorage.getItem("dataInicio")) {
+  document.getElementById("contador").classList.remove("escondido");
+  iniciarContagem();
+}
