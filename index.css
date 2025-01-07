@@ -1,0 +1,21 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('SEU_LINK_DO_GIF_AQUI') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    height: 100vh;
+  }
+  
+  #contador {
+    display: none; /* Inicialmente escondido */
+  }
+  
+  #tempo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff0000;
+  }
+  
