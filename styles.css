@@ -7,32 +7,39 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url('fundo.gif') no-repeat center center fixed;
+  background: url('fundolove.gif') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
 }
 
 .container {
   text-align: center;
+  max-width: 90%;
+  padding: 10px;
 }
 
 .botoes {
-  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espaço entre os botões */
+  margin-top: 20px;
 }
 
 button {
   font-size: 1.5rem;
   padding: 10px 20px;
-  margin: 10px;
+  margin: 0;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
   background-color: #ff007f;
   color: #fff;
+  transform: scale(1.1);
 }
 
 #sim {
@@ -43,7 +50,7 @@ button:hover {
 #nao {
   background-color: #555;
   color: #fff;
-  position: absolute;
+  position: relative; /* Remove posição absoluta */
 }
 
 #contador {
@@ -56,7 +63,7 @@ button:hover {
 
 /* Estilo do contador */
 .tempo-box {
-  background-color: rgba(128, 128, 128, 0.8); /* Cinza opaco */
+  background-color: rgba(255, 0, 0, 0.808); /* Cinza opaco */
   color: #fff;
   width: 100px;
   height: 100px;
@@ -66,7 +73,6 @@ button:hover {
   align-items: center;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  font-family: 'Arial', sans-serif;
   text-align: center;
 }
 
@@ -79,10 +85,73 @@ button:hover {
 .tempo-box span {
   font-size: 1rem;
   margin-top: 5px;
-  text-transform: lowercase;
 }
 
 /* Classe para esconder o contador */
 .escondido {
   display: none !important;
+}
+
+/* Estilo das fotos */
+.fotos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espaçamento entre as fotos */
+  margin-top: 20px;
+  flex-wrap: wrap; /* Permite que as fotos se ajustem em telas menores */
+}
+
+.fotos img {
+  width: calc(100% / 3 - 30px); /* Ajusta o tamanho das imagens para dividir a tela em três */
+  max-width: 200px; /* Limite máximo de largura */
+  height: auto; /* Mantém a proporção da imagem */
+  object-fit: cover; /* Garante que a imagem não distorça */
+  border: 2px solid white; /* Borda fina branca */
+  border-radius: 5px; /* Bordas levemente arredondadas */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+}
+
+/* ======== Media Queries para Responsividade ======== */
+
+/* Para telas menores que 768px */
+@media (max-width: 768px) {
+  .botoes {
+    flex-direction: column; /* Coloca os botões em coluna */
+    gap: 10px;
+  }
+
+  button {
+    font-size: 1.2rem; /* Ajusta o tamanho dos botões */
+    padding: 8px 15px;
+  }
+
+  .tempo-box {
+    width: 80px; /* Reduz o tamanho do contador */
+    height: 80px;
+  }
+
+  .tempo-box p {
+    font-size: 1.5rem;
+  }
+
+  .tempo-box span {
+    font-size: 0.8rem;
+  }
+
+  .fotos img {
+    width: 100px; /* Ajusta o tamanho das imagens */
+    max-width: 100%; /* Garante que elas não ultrapassem a largura */
+  }
+}
+
+/* Para telas menores que 480px */
+@media (max-width: 480px) {
+  .fotos {
+    flex-direction: column; /* Coloca as fotos em coluna */
+  }
+
+  .fotos img {
+    width: 90%; /* Fotos ocupam 90% da largura da tela */
+  }
 }
