@@ -116,4 +116,44 @@ button:hover {
   border: 2px solid white;
   border-radius: 5px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  max-height: 400px; /* Altura máxima para evitar imagens gigantes */
+  height: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  .carousel-inner img {
+    max-height: 300px; /* Reduz altura para telas menores */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-inner img {
+    max-height: 200px; /* Reduz altura ainda mais para celulares */
+  }
 }

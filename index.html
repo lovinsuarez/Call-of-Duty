@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <h1>Lovin e Shizuka ❤️</h1>
+    <p>Meu amor,</p>
     <p>Meu amor,
       Desde o instante em que nossos caminhos se cruzaram, algo dentro de mim mudou. Eu senti que havia algo único em você, e o tempo só confirmou o que meu coração já sabia. Esses dias que passei no Rio foram uma avalanche de saudade. Cada instante longe de você me trouxe à mente seus carinhos, suas risadas, suas brincadeiras – detalhes tão preciosos que nem consigo descrever todos aqui. Foram 20 dias sem você, e em nenhum deles deixei de pensar em nós. A vontade de te ver era tão grande que, por diversas vezes, pensei em adiantar minha volta só para estar ao seu lado.</p>
       
@@ -22,24 +23,29 @@
 
     <!-- Carrossel de Fotos Inicial -->
     <div class="carousel">
+      <button class="carousel-btn prev" onclick="mudarFoto('prev', 'carousel1')">&#10094;</button>
       <div class="carousel-inner" id="carousel1">
         <img src="imagem1.jpg" alt="Foto 1">
         <img src="imagem2.jpg" alt="Foto 2">
         <img src="imagem3.jpg" alt="Foto 3">
       </div>
+      <button class="carousel-btn next" onclick="mudarFoto('next', 'carousel1')">&#10095;</button>
     </div>
 
     <h2>1 Mês ❤️</h2>
+    <p>Um mês de nós, um mês de amor, um mês que me fez perceber que o destino sorriu para mim ao te colocar no meu caminho.❤️</p>
 
     <!-- Carrossel de Fotos do 1º Mês -->
     <div class="carousel">
+      <button class="carousel-btn prev" onclick="mudarFoto('prev', 'carousel2')">&#10094;</button>
       <div class="carousel-inner" id="carousel2">
         <img src="imagem4.jpg" alt="Foto 1 - 1 Mês">
         <img src="imagem5.jpg" alt="Foto 2 - 1 Mês">
+        <img src="imagem1.jpg" alt="Foto 3 - 1 Mês">
       </div>
+      <button class="carousel-btn next" onclick="mudarFoto('next', 'carousel2')">&#10095;</button>
     </div>
-    <p>Um mês de nós, um mês de amor, um mês que me fez perceber que o destino sorriu para mim ao te colocar no meu caminho.❤️</p>
-    
+
     <div id="contador">
       <div class="tempo-box">
         <p id="anos">0</p>
