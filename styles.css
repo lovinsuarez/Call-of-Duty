@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Espaço entre os botões */
+  gap: 20px;
   margin-top: 20px;
 }
 
@@ -50,7 +50,7 @@ button:hover {
 #nao {
   background-color: #555;
   color: #fff;
-  position: relative; /* Remove posição absoluta */
+  position: relative;
 }
 
 #contador {
@@ -63,7 +63,7 @@ button:hover {
 
 /* Estilo do contador */
 .tempo-box {
-  background-color: rgba(255, 0, 0, 0.808); /* Vermelho opaco */
+  background-color: rgba(255, 0, 0, 0.808);
   color: #fff;
   width: 100px;
   height: 100px;
@@ -92,26 +92,6 @@ button:hover {
   display: none !important;
 }
 
-/* Estilo das fotos */
-.fotos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* Espaçamento entre as fotos */
-  margin-top: 20px;
-  flex-wrap: wrap; /* Permite que as fotos se ajustem em telas menores */
-}
-
-.fotos img {
-  width: calc(100% / 3 - 30px); /* Ajusta o tamanho das imagens para dividir a tela em três */
-  max-width: 200px; /* Limite máximo de largura */
-  height: auto; /* Mantém a proporção da imagem */
-  object-fit: cover; /* Garante que a imagem não distorça */
-  border: 2px solid white; /* Borda fina branca */
-  border-radius: 5px; /* Bordas levemente arredondadas */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
-}
-
 /* Estilo do carrossel */
 .carousel {
   position: relative;
@@ -120,6 +100,7 @@ button:hover {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  touch-action: pan-y; /* Habilita o arraste no celular */
 }
 
 .carousel-inner {
@@ -132,81 +113,7 @@ button:hover {
   width: 100%;
   flex-shrink: 0;
   object-fit: cover;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-/* ======== Media Queries para Responsividade ======== */
-
-/* Para telas menores que 768px */
-@media (max-width: 768px) {
-  .botoes {
-    flex-direction: column; /* Coloca os botões em coluna */
-    gap: 10px;
-  }
-
-  button {
-    font-size: 1.2rem; /* Ajusta o tamanho dos botões */
-    padding: 8px 15px;
-  }
-
-  .tempo-box {
-    width: 80px; /* Reduz o tamanho do contador */
-    height: 80px;
-  }
-
-  .tempo-box p {
-    font-size: 1.5rem;
-  }
-
-  .tempo-box span {
-    font-size: 0.8rem;
-  }
-
-  .fotos img {
-    width: 100px; /* Ajusta o tamanho das imagens */
-    max-width: 100%; /* Garante que elas não ultrapassem a largura */
-  }
-
-  .carousel {
-    max-width: 90%; /* Ajusta o carrossel para telas menores */
-  }
-}
-
-/* Para telas menores que 480px */
-@media (max-width: 480px) {
-  .fotos {
-    flex-direction: column; /* Coloca as fotos em coluna */
-  }
-
-  .fotos img {
-    width: 90%; /* Fotos ocupam 90% da largura da tela */
-  }
-
-  .carousel-btn {
-    padding: 8px; /* Reduz o tamanho dos botões do carrossel */
-  }
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
